@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#0d1020" />
+  <meta name="description" content="Lucky Ace — ігровий сайт з клікабельним меню, слотами, рулеткою та Texas Roll'em." />
+  <title>Lucky Ace</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Manrope:wght@700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="auth-overlay" id="authOverlay">
+    <div class="auth-card glass">
+      <div class="eyebrow">Доступ до сайту</div>
+      <h1>Вхід або реєстрація</h1>
+      <p>Для входу у сайт створи локальний акаунт. Після реєстрації нараховується стартовий бонусний баланс 1000 €.</p>
+      <form id="authForm" class="auth-form">
+        <label>
+          <span>Ігровий юзернейм</span>
+          <input type="text" id="authUsername" minlength="3" maxlength="24" placeholder="Введи свій юзернейм" required />
+        </label>
+        <label>
+          <span>Пароль</span>
+          <input type="password" id="authPassword" minlength="4" maxlength="32" placeholder="Придумай пароль" required />
+        </label>
+        <div class="auth-actions">
+          <button class="btn btn-primary" type="submit" id="registerBtn">Зареєструватися</button>
+          <button class="btn btn-secondary" type="button" id="loginBtn">Увійти</button>
+        </div>
+      </form>
+      <small class="auth-note">Це локальна реєстрація в браузері. Сторонні акаунти не збираються.</small>
+    </div>
+  </div>
+
+  <div class="app-shell app-locked" id="appShell" aria-hidden="true">
+    <header class="site-header glass" id="top">
+      <a class="brand" href="#dashboard" aria-label="Lucky Ace">
+        <span class="brand-mark" aria-hidden="true">
+          <svg viewBox="0 0 64 64" role="img" focusable="false">
+            <path d="M32 6c7.2 9.2 16.8 15 16.8 24.7 0 7.4-6 13.3-13.3 13.3-1.3 0-2.4-.2-3.5-.5v7.4h9v7.1H23.1v-7.1h8.9v-7.4c-1.1.3-2.2.5-3.5.5-7.3 0-13.3-5.9-13.3-13.3C15.2 21 24.8 15.2 32 6Z"/>
+          </svg>
+        </span>
+        <span>
+          <strong>Lucky Ace</strong>
+          <small id="playerTag">Гість</small>
+        </span>
+      </a>
+
+      <button class="menu-toggle" id="menuToggle" aria-expanded="false" aria-controls="mobileMenu" aria-label="Відкрити меню">
+        <span></span><span></span><span></span>
+      </button>
+
+      <nav class="site-nav" aria-label="Головна навігація">
+        <a href="#dashboard">Головна</a>
+        <a href="#slots">Слоти</a>
+        <a href="#roulette">Roulette Noir</a>
+        <a href="#texas">Texas Roll'em</a>
+        <a href="#support">Підтримка</a>
+      </nav>
+
+      <div class="header-actions">
+        <div class="wallet" aria-live="polite">
+          <span class="wallet-label">Баланс</span>
+          <strong id="walletBalance">€ 1,000</strong>
+        </div>
+        <button class="btn btn-secondary" id="historyBtn">Історія</button>
+        <button class="btn btn-primary" id="depositBtn">Поповнити</button>
+        <button class="btn btn-secondary" id="withdrawBtn">Виведення коштів</button>
+      </div>
+    </header>
+
+    <div class="mobile-menu glass" id="mobileMenu" hidden>
+      <a href="#dashboard">Головна</a>
+      <a href="#slots">Слоти</a>
+      <a href="#roulette">Roulette Noir</a>
+      <a href="#texas">Texas Roll'em</a>
+      <a href="#support">Підтримка</a>
+      <button class="btn btn-secondary" id="mobileHistoryBtn">Історія</button>
+      <button class="btn btn-primary" id="mobileDepositBtn">Поповнити</button>
+      <button class="btn btn-secondary" id="mobileWithdrawBtn">Виведення коштів</button>
+    </div>
+
+    <main>
+      <section class="hero" id="dashboard">
+        <div class="hero-copy glass">
+          <div class="section-heading compact">
+            <div>
+              <span class="eyebrow">Головна</span>
+              <h2>Вас вітає Lucky Ace</h2>
+            </div>
+            <p class="welcome-copy">Щоб відкрити розділи сайту, натисни на 3 палки зверху. У меню будуть слоти, Roulette Noir, Texas Roll'em і підтримка.</p>
+          </div>
+          <div class="feature-grid compact-grid desktop-showcase">
+            <article class="feature-card glass-soft">
+              <h3>Слоти</h3>
+              <p>Барабани, ставки, виграшні лінії та історія спінів.</p>
+              <a class="btn btn-primary" href="#slots">Відкрити</a>
+            </article>
+            <article class="feature-card glass-soft">
+              <h3>Roulette Noir</h3>
+              <p>Ставки на колір, парність, діапазон або конкретне число.</p>
+              <a class="btn btn-primary" href="#roulette">Відкрити</a>
+            </article>
+            <article class="feature-card glass-soft">
+              <h3>Texas Roll'em</h3>
+              <p>Роздача карт, банк раунду, showdown проти дилера.</p>
+              <a class="btn btn-primary" href="#texas">Відкрити</a>
+            </article>
+          </div>
+        </div>
+
+        <aside class="hero-panel glass" aria-label="Огляд акаунта">
+          <h2>Профіль</h2>
+          <div class="panel-row">
+            <span>Юзернейм</span>
+            <strong id="profileName">—</strong>
+          </div>
+          <div class="panel-row">
+            <span>Баланс</span>
+            <strong id="heroBalance">€ 1,000</strong>
+          </div>
+          <div class="panel-row">
+            <span>Останній виграш</span>
+            <strong id="heroLastWin">€ 0</strong>
+          </div>
+          <div class="panel-row">
+            <span>Остання ставка</span>
+            <strong id="heroLastBet">€ 500</strong>
+          </div>
+          <div class="panel-row">
+            <span>Підтримка</span>
+            <strong>@shppsqwizzy</strong>
+          </div>
+        </aside>
+      </section>
+
+      <section class="section section-contrast" id="slots">
+        <div class="section-heading compact">
+          <div>
+            <span class="eyebrow">Ігри</span>
+            <h2>Слоти</h2>
+          </div>
+          <p>Мінімальна ставка 500 €, максимальна — 10 000 €.</p>
+        </div>
+
+        <div class="slot-layout">
+          <section class="slot-machine glass" aria-labelledby="slotTitle">
+            <div class="slot-machine-head">
+              <div>
+                <h3 id="slotTitle">Golden Reels</h3>
+                <p id="slotStatus">Оберіть ставку й натисніть «Spin».</p>
+              </div>
+              <span class="machine-pill">3 payline</span>
+            </div>
+            <div class="slot-screen">
+              <div class="payline payline-1"></div>
+              <div class="payline payline-2"></div>
+              <div class="payline payline-3"></div>
+              <div class="reel-grid" id="reelGrid"></div>
+            </div>
+            <div class="slot-controls">
+              <div class="bet-box">
+                <span>Ставка</span>
+                <strong id="betValue">€ 500</strong>
+              </div>
+              <div class="control-buttons">
+                <button class="btn btn-icon" id="betDown" aria-label="Зменшити ставку">−</button>
+                <button class="btn btn-secondary" id="maxBetBtn">Max Bet</button>
+                <button class="btn btn-icon" id="betUp" aria-label="Збільшити ставку">+</button>
+              </div>
+            </div>
+            <div class="slot-actions">
+              <button class="btn btn-primary btn-spin" id="spinBtn">Spin</button>
+            </div>
+            <div class="slot-metrics">
+              <article class="metric glass-soft"><span>Баланс</span><strong id="slotBalance">€ 1,000</strong></article>
+              <article class="metric glass-soft"><span>Останній виграш</span><strong id="lastWin">€ 0</strong></article>
+              <article class="metric glass-soft"><span>Остання комбінація</span><strong id="lastCombo">—</strong></article>
+            </div>
+          </section>
+          <aside class="slot-sidebar">
+            <article class="panel glass"><h3>Таблиця виплат</h3><div class="paytable" id="paytable"></div></article>
+            <article class="panel glass"><h3>Останні результати</h3><ul class="results-list" id="resultsList"></ul></article>
+          </aside>
+        </div>
+      </section>
+
+      <section class="section section-contrast" id="roulette">
+        <div class="section-heading compact">
+          <div>
+            <span class="eyebrow">Ігри</span>
+            <h2>Roulette Noir</h2>
+          </div>
+          <p>Доступні ставки: red, black, even, odd, low, high та конкретне число 0–36.</p>
+        </div>
+        <div class="game-layout">
+          <section class="panel glass">
+            <h3>Ставка на рулетку</h3>
+            <div class="roulette-wheel" id="rouletteWheel"></div><div class="roulette-board" id="rouletteNumbers"></div>
+            <div class="roulette-controls">
+              <label>
+                <span>Тип ставки</span>
+                <select id="rouletteBetType">
+                  <option value="red">Red</option>
+                  <option value="black">Black</option>
+                  <option value="even">Even</option>
+                  <option value="odd">Odd</option>
+                  <option value="low">1–18</option>
+                  <option value="high">19–36</option>
+                  <option value="number">Конкретне число</option>
+                </select>
+              </label>
+              <label>
+                <span>Число</span>
+                <input type="number" id="rouletteNumberInput" min="0" max="36" value="7" />
+              </label>
+              <label>
+                <span>Ставка</span>
+                <select id="rouletteBetAmount"></select>
+              </label>
+            </div>
+            <div class="slot-actions">
+              <button class="btn btn-primary" id="rouletteSpinBtn">Крутити рулетку</button>
+            </div>
+            <div class="slot-metrics">
+              <article class="metric glass-soft"><span>Результат</span><strong id="rouletteResult">—</strong></article>
+              <article class="metric glass-soft"><span>Останній виграш</span><strong id="rouletteWin">€ 0</strong></article>
+              <article class="metric glass-soft"><span>Статус</span><strong id="rouletteStatus">Готово</strong></article>
+            </div>
+          </section>
+          <aside class="panel glass">
+            <h3>Пояснення ставок</h3>
+            <ul class="feature-list">
+              <li>Red / Black / Even / Odd / Low / High — виплата x2</li>
+              <li>Конкретне число — виплата x36</li>
+              <li>0 не входить до red/black/even/odd/low/high</li>
+            </ul>
+          </aside>
+        </div>
+      </section>
+
+      <section class="section section-contrast" id="texas">
+        <div class="section-heading compact">
+          <div>
+            <span class="eyebrow">Ігри</span>
+            <h2>Texas Roll'em</h2>
+          </div>
+          <p>Один раунд: роздача карт, відкриття борду й showdown проти дилера.</p>
+        </div>
+        <div class="game-layout">
+          <section class="panel glass">
+            <h3>Стіл</h3>
+            <div class="texas-progress" id="texasProgress"><span class="texas-step">Роздача</span><span class="texas-step">Flop</span><span class="texas-step">Turn</span><span class="texas-step">River</span><span class="texas-step">Showdown</span></div><div class="cards-section">
+              <div>
+                <span class="cards-title">Карти дилера</span>
+                <div class="cards-row" id="dealerCards"></div>
+              </div>
+              <div>
+                <span class="cards-title">Борд</span>
+                <div class="cards-row" id="communityCards"></div>
+              </div>
+              <div>
+                <span class="cards-title">Твої карти</span>
+                <div class="cards-row" id="playerCards"></div>
+              </div>
+            </div>
+            <div class="roulette-controls">
+              <label>
+                <span>Ставка</span>
+                <select id="texasBetAmount"></select>
+              </label>
+            </div>
+            <div class="slot-actions">
+              <button class="btn btn-primary" id="dealTexasBtn">Здати карти</button>
+            </div>
+            <div class="slot-metrics">
+              <article class="metric glass-soft"><span>Твоя комбінація</span><strong id="playerHandRank">—</strong></article>
+              <article class="metric glass-soft"><span>Комбінація дилера</span><strong id="dealerHandRank">—</strong></article>
+              <article class="metric glass-soft"><span>Результат</span><strong id="texasStatus">Очікування</strong></article><article class="metric glass-soft"><span>Банк раунду</span><strong id="texasPot">€ 0</strong></article>
+            </div>
+          </section>
+          <aside class="panel glass">
+            <h3>Правила Texas Roll'em</h3>
+            <ul class="feature-list">
+              <li>Використовуються 2 твої карти, 2 карти дилера та 5 спільних карт.</li>
+              <li>Оцінюється найкраща 5-карткова комбінація з 7 карт.</li>
+              <li>Перемога — виплата x2, нічия — повернення ставки.</li>
+            </ul>
+          </aside>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer glass" id="support">
+      <div>
+        <strong>Підтримка</strong>
+        <p>Telegram для звʼязку: <a href="https://t.me/shppsqwizzy" target="_blank" rel="noreferrer">@shppsqwizzy</a></p>
+      </div>
+      <nav aria-label="Дії">
+        <a href="https://t.me/shppsqwizzy" target="_blank" rel="noreferrer">Написати в Telegram</a>
+        <button class="btn btn-secondary support-link" id="footerWithdrawBtn">Виведення коштів</button>
+      </nav>
+    </footer>
+  </div>
+
+  <dialog class="modal" id="historyModal" aria-labelledby="historyTitle">
+    <div class="modal-card">
+      <div class="modal-head">
+        <div>
+          <h2 id="historyTitle">Історія</h2>
+          <p>Останні ігрові дії зберігаються локально в браузері.</p>
+        </div>
+        <button class="btn btn-icon modal-close" data-close="historyModal" aria-label="Закрити">×</button>
+      </div>
+      <div class="modal-body"><ul class="history-list" id="historyList"></ul></div>
+    </div>
+  </dialog>
+
+  <dialog class="modal" id="depositModal" aria-labelledby="depositTitle">
+    <div class="modal-card">
+      <div class="modal-head">
+        <div>
+          <h2 id="depositTitle">Поповнення</h2>
+          <p>Інструкція для звʼязку з підтримкою.</p>
+        </div>
+        <button class="btn btn-icon modal-close" data-close="depositModal" aria-label="Закрити">×</button>
+      </div>
+      <div class="modal-body">
+        <p>Для поповнення звернись у Telegram: <strong>@shppsqwizzy</strong>.</p>
+      </div>
+    </div>
+  </dialog>
+
+  <dialog class="modal" id="withdrawModal" aria-labelledby="withdrawTitle">
+    <div class="modal-card">
+      <div class="modal-head">
+        <div>
+          <h2 id="withdrawTitle">Виведення коштів</h2>
+          <p>Кнопка для звʼязку з підтримкою.</p>
+        </div>
+        <button class="btn btn-icon modal-close" data-close="withdrawModal" aria-label="Закрити">×</button>
+      </div>
+      <div class="modal-body">
+        <p>Для запиту звернись у Telegram: <strong>@shppsqwizzy</strong>.</p>
+      </div>
+    </div>
+  </dialog>
+
+  <div class="toast-stack" id="toastStack" aria-live="polite" aria-atomic="true"></div>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="supabase-config.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

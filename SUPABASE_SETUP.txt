@@ -1,0 +1,7 @@
+1. У Supabase створи project.
+2. У SQL Editor встав вміст файла supabase.sql і запусти.
+3. У Authentication > Providers залиш Email увімкненим.
+4. У Authentication > URL Configuration додай адресу свого GitHub Pages сайту в Site URL.
+5. У Project Settings > API скопіюй Project URL та anon/public key.
+6. Встав їх у файл supabase-config.js.
+7. Завантаж на GitHub index.html, styles.css, script.js, supabase-config.js, supabase.sql, SUPABASE_SETUP.txt.
